@@ -4,3 +4,6 @@
 [submodule "components/ESP8266Audio"]
 	path = components/ESP8266Audio
 	url = https://github.com/WuSiYu/ESP8266Audio
+[submodule "main/apps/utils/wifi/ezTime"]
+	path = main/apps/utils/wifi/ezTime
+	url = https://github.com/ropg/ezTime
