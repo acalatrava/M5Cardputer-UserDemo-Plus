@@ -120,7 +120,7 @@ bool wifi_is_credentials_saved()
     return ssid_len > 0 && pwd_len > 0;
 }
 
-void wifi_auto_connect_if_saved()
+bool wifi_auto_connect_if_saved()
 {
     spdlog::info("wifi_auto_connect_if_saved");
     WiFiCredentials credentials;
@@ -134,10 +134,19 @@ void wifi_auto_connect_if_saved()
     {
         spdlog::info(credentials.ssid);
         spdlog::info(credentials.password);
-        wifi_auto_connect(credentials.ssid, credentials.password);
+        for (int i = 0; i < 3; i++)
+        {
+            if (wifi_auto_connect(credentials.ssid, credentials.password))
+            {
+                return true;
+            }
+            delay(1000);
+        }
+        return false;
     }
     else
     {
         spdlog::warn("No saved WiFi credentials.");
+        return false;
     }
 }

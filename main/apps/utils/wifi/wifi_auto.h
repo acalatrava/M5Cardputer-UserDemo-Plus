@@ -16,5 +16,5 @@
 #pragma once
 void wifi_auto_clear();
 bool wifi_auto_connect(const char *ssid, const char *password);
-void wifi_auto_connect_if_saved();
+bool wifi_auto_connect_if_saved();
 bool wifi_is_credentials_saved();

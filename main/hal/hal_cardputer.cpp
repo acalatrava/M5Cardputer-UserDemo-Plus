@@ -113,8 +113,17 @@ void HalCardputer::init()
         _display->setFont(&fonts::efontCN_24_b);
         _display->setTextDatum(MC_DATUM);
         _display->drawString("Connecting...", 240 / 2, 135 / 2);
-        wifi_auto_connect_if_saved();
-        setSntpAdjusted(true);
+        if (wifi_auto_connect_if_saved())
+        {
+            _display->clear();
+            _display->drawString("Connected", 240 / 2, 135 / 2);
+            setSntpAdjusted(true);
+        }
+        else
+        {
+            _display->clear();
+            _display->drawString("Failed", 240 / 2, 135 / 2);
+        }
     }
 }
 
