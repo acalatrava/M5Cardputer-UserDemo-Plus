@@ -200,7 +200,7 @@ void AppSetWiFi::_update_state()
         _data.current_state = state_connect;
         spdlog::info("wifi password set: {}", _data.wifi_password);
         _canvas->setTextColor(TFT_ORANGE, THEME_COLOR_BG);
-        _canvas->printf("WiFi config:\n- %s\n- %s\nConnecting...\n", _data.wifi_ssid.c_str(), _data.wifi_password.c_str());
+        _canvas->printf("WiFi config:\n- %s\n- ********\nConnecting...\n", _data.wifi_ssid.c_str());
         _canvas->setTextColor(THEME_COLOR_REPL_TEXT, THEME_COLOR_BG);
         _canvas_update();
     }
